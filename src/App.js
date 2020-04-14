@@ -1,16 +1,17 @@
 import React from 'react';
-//import logo from './logo.svg';
-import './App.css';
-import Postlist from './component/PostList'
+import CommentBox from './components/CommentBox';
+import CommentList from './components/CommentList';
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-          <Postlist />
-      </header>
-    </div>
-  );
-}
+class App extends React.Component {
+  render() {
+    return (
+      <div>
+        <CommentBox />
+        <CommentList />
+      </div>
+    );
+  }
+};
 
-export default App;
+
+export default App
