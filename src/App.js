@@ -5,7 +5,7 @@ import CommentList from './components/CommentList';
 class App extends React.Component {
   render() {
     return (
-      <div>
+      <div style={{padding:20}}>
         <CommentBox />
         <CommentList />
       </div>

@@ -1,31 +1,17 @@
-import Json from '../api/json'
-
-export const fetchpostuser =   async (dispatch,getState) => {
-
-   await dispatch(fetchpost()) 
-   console.log('post fetched')
-   console.log(getState().post)
-
-}
-
-export const fetchpost =   () => {
-
-    return async function(dispatch) {
-    const response = await Json.get('/posts');
-
-    dispatch( {
-        type : 'FETCH_POST',
-        payload : response.data
-        } )
+import axios from "axios";
+export function saveComment(comment){
+    return{
+        type:'SAVE_COMMENT',
+        payload:comment
     }
-    
 }
 
-export const fetchuser = (id) => async dispatch => {
-
-    const response = await Json.get('/users/' + id)
-    dispatch({
-        type : 'USER',
-        payload : response.data
-    })
+export function fetchComment(){
+    return async function(dispatch) {
+        const response = await axios.get('https://jsonplaceholder.typicode.com/comments')
+        dispatch( {
+            type : 'FETCH_COMMENT',
+            payload : response.data
+            } )
+        }
 }
